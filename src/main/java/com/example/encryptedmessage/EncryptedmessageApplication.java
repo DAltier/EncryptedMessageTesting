@@ -15,7 +15,11 @@ public class EncryptedmessageApplication {
 		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 		System.out.println("Enter your message");
 		String message = myObj.nextLine();  // Read user input
-		System.out.println(IEMF.getResult(message));
+		String result = "";
+		for(int i = 0; i < message.length(); i++) {
+			result += IEMF.getResult(String.valueOf(message.charAt(i)));
+		}
+		System.out.println(result);
 		myObj.close();
 	}
 
