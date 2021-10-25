@@ -1,13 +1,22 @@
 package com.example.encryptedmessage;
 
-import org.springframework.boot.SpringApplication;
+import java.util.Scanner;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootApplication
 public class EncryptedmessageApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EncryptedmessageApplication.class, args);
+		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+		IEncryptedMessageFlow IEMF = context.getBean("IEncryptedMessageFlow", EncryptedMessageFlow.class);
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+		System.out.println("Enter your message");
+		String message = myObj.nextLine();  // Read user input
+		System.out.println(IEMF.getResult(message));
+		myObj.close();
 	}
 
 }
