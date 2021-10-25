@@ -1,0 +1,60 @@
+Given: I need to encrypt a message
+when: the message is encrypted
+then: each letter is shifted down the alphabet by double the number of that letter in the alphabet(abc would become bdf).
+and: if the letter would be shifted past the last letter in the alphabet, then it loops around again starting at the beginning
+and: if the letter does not get looped around again it should be lower case
+and: if the letter does get looped it should be upper case
+
+Given: I am a user
+When: I enter the string "a"
+Then: I get back the number 1
+
+Given: I am a user
+When: I enter the string "z"
+Then: I get back the number 26
+
+Given: I am a user
+When: I enter the string "A"
+Then: I get back the number 1
+
+Given: I am a user
+When: I enter the string "Z"
+Then: I get back the number 26
+
+Given: I am a user
+When: I enter the string "1"
+Then: I get back the number -1
+
+Given: I am a user
+When: I enter the string " "
+Then: I get back the number -1
+___________________________
+
+Given: I am a user
+When: I enter the number 1
+Then: I get back the number 2
+
+Given: I am a user
+When: I enter the number 26
+Then: I get back the number 52
+__________________________
+
+Given: I am a user
+When: When I enter number 1
+Then: return back to me 'a'
+
+Given: I am a user
+When: When I enter number 2
+Then: return back to me 'b'
+
+Given: I am a user
+When: When I enter number 26
+Then: return back to me 'z'
+
+Given: I am a user
+When: When I enter number 27
+Then: return back to me 'A'
+
+Given: I am a user
+When: When I enter number 52
+Then: return back to me 'Z'
