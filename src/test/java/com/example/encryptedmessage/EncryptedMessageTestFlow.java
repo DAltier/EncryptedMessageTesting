@@ -212,7 +212,7 @@ class EncryptedMessageTestFlow {
 	@Test
 	public void Given1CallStringToIntOneTime() {
 		// Given: I need to encrypt a message
-		given(mockStringToInt.getResult("1")).willReturn(0);
+		given(mockStringToInt.getResult("1")).willReturn(9);
 		given(mockDoubleInt.getResult(0)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn("1");
 		
@@ -227,7 +227,7 @@ class EncryptedMessageTestFlow {
 	@Test
 	public void Given1CallDoubleIntZeroTimes() {
 		// Given: I need to encrypt a message
-		given(mockStringToInt.getResult("1")).willReturn(0);
+		given(mockStringToInt.getResult("1")).willReturn(9);
 		given(mockDoubleInt.getResult(0)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn("1");
 		
@@ -242,7 +242,7 @@ class EncryptedMessageTestFlow {
 	@Test
 	public void Given1CallIntToStringZeroTimes() {
 		// Given: I need to encrypt a message
-		given(mockStringToInt.getResult("1")).willReturn(0);
+		given(mockStringToInt.getResult("1")).willReturn(9);
 		given(mockDoubleInt.getResult(0)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn("1");
 		
@@ -253,4 +253,5 @@ class EncryptedMessageTestFlow {
 		//Then: IntToString.getResult() will be called one time
 		verify(mockIntToString, times(0)).getResult(0);
 	}
+	
 }
