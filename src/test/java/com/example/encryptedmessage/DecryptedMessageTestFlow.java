@@ -26,7 +26,7 @@ class DecryptedMessageTestFlow {
 	// Testing encryption for string "b" 
 	@Test
 	public void GivenbCallStringToIntOneTime() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("b")).willReturn(2);
 		given(mockHalfInt.getResult(2)).willReturn(1);
 		given(mockIntToString.getResult(1)).willReturn("a");
@@ -41,7 +41,7 @@ class DecryptedMessageTestFlow {
 	
 	@Test
 	public void GivenbCallDoubleIntOneTime() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("b")).willReturn(2);
 		given(mockHalfInt.getResult(2)).willReturn(1);
 		given(mockIntToString.getResult(1)).willReturn("a");
@@ -56,7 +56,7 @@ class DecryptedMessageTestFlow {
 	
 	@Test
 	public void GivenbCallIntToStringOneTime() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("b")).willReturn(2);
 		given(mockHalfInt.getResult(2)).willReturn(1);
 		given(mockIntToString.getResult(1)).willReturn("a");
@@ -73,7 +73,7 @@ class DecryptedMessageTestFlow {
 	// Testing encryption for string "B" 
 	@Test
 	public void GivenBCallStringToIntOneTime() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("B")).willReturn(2);
 		given(mockHalfInt.getResult(2)).willReturn(1);
 		given(mockIntToString.getResult(1)).willReturn("a");
@@ -88,7 +88,7 @@ class DecryptedMessageTestFlow {
 	
 	@Test
 	public void GivenBCallDoubleIntOneTime() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("B")).willReturn(2);
 		given(mockHalfInt.getResult(2)).willReturn(1);
 		given(mockIntToString.getResult(1)).willReturn("a");
@@ -103,7 +103,7 @@ class DecryptedMessageTestFlow {
 	
 	@Test
 	public void GivenBCallIntToStringOneTime() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("B")).willReturn(2);
 		given(mockHalfInt.getResult(2)).willReturn(1);
 		given(mockIntToString.getResult(1)).willReturn("a");
@@ -120,7 +120,7 @@ class DecryptedMessageTestFlow {
 	// Testing encryption for string "A" 
 	@Test
 	public void GivenACallStringToIntOneTime() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("A")).willReturn(-1);
 		given(mockHalfInt.getResult(-1)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn(" ");
@@ -135,7 +135,7 @@ class DecryptedMessageTestFlow {
 	
 	@Test
 	public void GivenACallDoubleIntZeroTimes() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("A")).willReturn(-1);
 		given(mockHalfInt.getResult(-1)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn(" ");
@@ -150,7 +150,7 @@ class DecryptedMessageTestFlow {
 	
 	@Test
 	public void GivenACallIntToStringZeroTimes() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("A")).willReturn(-1);
 		given(mockHalfInt.getResult(-1)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn(" ");
@@ -167,7 +167,7 @@ class DecryptedMessageTestFlow {
 	// Testing encryption for string "!" 
 	@Test
 	public void GivenExclamationPointCallStringToIntOneTime() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("!")).willReturn(-1);
 		given(mockHalfInt.getResult(-1)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn("!");
@@ -182,7 +182,7 @@ class DecryptedMessageTestFlow {
 	
 	@Test
 	public void GivenExclamationPointCallDoubleIntZeroTimes() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("!")).willReturn(-1);
 		given(mockHalfInt.getResult(-1)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn("!");
@@ -197,7 +197,7 @@ class DecryptedMessageTestFlow {
 	
 	@Test
 	public void GivenExclamationPointCallIntToStringZeroTimes() {
-		// Given: I need to encrypt a message
+		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("!")).willReturn(-1);
 		given(mockHalfInt.getResult(-1)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn("!");
