@@ -2,6 +2,8 @@ package com.example.encryptedmessage;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 
 class StringToIntTest {
@@ -47,22 +49,24 @@ class StringToIntTest {
 	}
 	
 	@Test
-    public void GivenSpaceGet0() {
+    public void GivenSpaceGetRandomOddInt() {
         //Given: I am a user
         //When: I enter the string " "
         IStringToInt ISTI = new StringToInt();
         int result = ISTI.getResult(" ");
-        //Then: I get back the number 0
-        assertEquals(0, result);
+        Integer[] values = {27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51};
+        boolean check = Arrays.asList(values).contains(result);
+        //Then: I get back a random odd number between 27 and 52
+        assertEquals(true, check);
     }
 	
 	@Test
-    public void Given1Get0() {
+    public void Given1Get9() {
         //Given: I am a user
         //When: I enter the string "1"
         IStringToInt ISTI = new StringToInt();
         int result = ISTI.getResult("1");
-        //Then: I get back the number 0
-        assertEquals(0, result);
+        //Then: I get back the number 9
+        assertEquals(9, result);
     }
 }
