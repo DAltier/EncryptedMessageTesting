@@ -16,20 +16,23 @@ public class DecryptedMessageFlow implements IDecryptedMessageFlow {
 		String result = "";
 		String numbers = "0123456789";
 		String spaces = "ACEGIKMOQSUWY";
+		String alphabetUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		
-		for(int i = 0; i < s.length(); i++) {
-			int stringToIntCheck = _ISTI.getResult(String.valueOf(s.charAt(i)));
-			
-			if (spaces.contains(String.valueOf(s.charAt(i)))) {
-				result += " ";
-			} else if (numbers.contains(String.valueOf(s.charAt(i)))) {
-				result += stringToIntCheck;
-			} else if (stringToIntCheck == -1) {
-				result += String.valueOf(s.charAt(i));
-			} else {
-				int halfIntCheck = _IHI.getResult(stringToIntCheck);
-				result += _IITS.getResult(halfIntCheck);
-			}
+		int stringToIntCheck = _ISTI.getResult(s); 
+		
+		if (alphabetUpperCase.contains(s)) {
+			stringToIntCheck = _ISTI.getResult(s) + 26;
+		}
+		
+		if (spaces.contains(s)) {
+			result += " ";
+		} else if (numbers.contains(s)) {
+			result += stringToIntCheck;
+		} else if (stringToIntCheck == -1) {
+			result += s;
+		} else {
+			int halfIntCheck = _IHI.getResult(stringToIntCheck);
+			result += _IITS.getResult(halfIntCheck);
 		}
 		return result;
 		

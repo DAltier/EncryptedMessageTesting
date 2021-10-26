@@ -18,9 +18,9 @@ public class StringToInt implements IStringToInt {
 			return ran;
 		} else if (numbers.contains(s)) {
 			return (10 - numbers.indexOf(s)) % 10;
-		} else if (alphabet.contains(s)) {
+		} else if (alphabet.contains(alpha)) {
 			return alphabet.indexOf(alpha) + 1;
-		}
+		} 
 		
 		return -1; 
 	}

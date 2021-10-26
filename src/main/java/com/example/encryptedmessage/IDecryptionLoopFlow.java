@@ -1,6 +1,6 @@
 package com.example.encryptedmessage;
 
-public interface ILoopFlow {
+public interface IDecryptionLoopFlow {
 
 	String getResult(String s);
 	

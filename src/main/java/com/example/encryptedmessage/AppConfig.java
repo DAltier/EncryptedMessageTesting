@@ -38,8 +38,13 @@ public class AppConfig {
 		return new DecryptedMessageFlow(createStringToInt(), createHalfInt(), createIntToString());
 	}
 	
-	@Bean(name = "ILoopFlow")
-	public ILoopFlow createLoopFlow() {
-		return new LoopFlow(createEncryptedMessageFlow());
+	@Bean(name = "IEncryptionLoopFlow")
+	public IEncryptionLoopFlow createEncryptionLoopFlow() {
+		return new EncryptionLoopFlow(createEncryptedMessageFlow());
+	}
+	
+	@Bean(name = "IDecryptionLoopFlow")
+	public IDecryptionLoopFlow createDecryptionLoopFlow() {
+		return new DecryptionLoopFlow(createDecryptedMessageFlow());
 	}
 }

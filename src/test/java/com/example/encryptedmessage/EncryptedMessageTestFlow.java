@@ -17,9 +17,6 @@ class EncryptedMessageTestFlow {
 	DoubleInt mockDoubleInt = mock(DoubleInt.class);
 	
 	@Mock
-	HalfInt mockHalfInt = mock(HalfInt.class);
-	
-	@Mock
 	IntToString mockIntToString = mock(IntToString.class);
 	
 	@Mock
@@ -316,7 +313,7 @@ class EncryptedMessageTestFlow {
 		given(mockEncryptedMessageFlow.getResult("c")).willReturn("f");
 		
 		// When: I enter the string "abc"
-		ILoopFlow ILF = new LoopFlow(mockEncryptedMessageFlow);
+		IEncryptionLoopFlow ILF = new EncryptionLoopFlow(mockEncryptedMessageFlow);
 		ILF.getResult("abc");
 		
 		//Then: IntToString.getResult() will be called one time

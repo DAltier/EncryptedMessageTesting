@@ -13,10 +13,10 @@ public class EncryptedmessageApplication {
 	public static void main(String[] args) {
 		
 		ApplicationContext contextEncrypt = new AnnotationConfigApplicationContext(AppConfig.class);
-		ILoopFlow ILF = contextEncrypt.getBean("ILoopFlow", LoopFlow.class);
+		IEncryptionLoopFlow ILF = contextEncrypt.getBean("IEncryptionLoopFlow", EncryptionLoopFlow.class);
 		
 		ApplicationContext contextDecrypt = new AnnotationConfigApplicationContext(AppConfig.class);
-		IDecryptedMessageFlow IDMF = contextDecrypt.getBean("IDecryptedMessageFlow", DecryptedMessageFlow.class);
+		IDecryptionLoopFlow DLF = contextDecrypt.getBean("IDecryptionLoopFlow", DecryptionLoopFlow.class);
 		
 		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 		System.out.println("Enter e to encrypt or d to decrypt");
@@ -28,7 +28,7 @@ public class EncryptedmessageApplication {
 		} else if (choice.equalsIgnoreCase("d")) {
 			System.out.println("Enter the message to decrypt");
 			String message = myObj.nextLine();  // Read user input
-			System.out.println(IDMF.getResult(message));
+			System.out.println(DLF.getResult(message));
 		}
 		myObj.close();
 		((AbstractApplicationContext)contextEncrypt).close();
