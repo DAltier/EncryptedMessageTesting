@@ -17,10 +17,15 @@ class EncryptedMessageTestFlow {
 	DoubleInt mockDoubleInt = mock(DoubleInt.class);
 	
 	@Mock
+	HalfInt mockHalfInt = mock(HalfInt.class);
+	
+	@Mock
 	IntToString mockIntToString = mock(IntToString.class);
 	
+	@Mock
+	EncryptedMessageFlow mockEncryptedMessageFlow = mock(EncryptedMessageFlow.class);
 	
-	// Testing for string "a" 
+	// Testing encryption for string "a" 
 	@Test
 	public void GivenaCallStringToIntOneTime() {
 		// Given: I need to encrypt a message
@@ -250,8 +255,73 @@ class EncryptedMessageTestFlow {
 		IEncryptedMessageFlow IEMF = new EncryptedMessageFlow(mockStringToInt, mockDoubleInt, mockIntToString);
 		IEMF.getResult("1");
 		
-		//Then: IntToString.getResult() will be called one time
+		//Then: IntToString.getResult() will be called zero times
 		verify(mockIntToString, times(0)).getResult(0);
 	}
 	
+	
+	// Testing for string "!" 
+	@Test
+	public void GivenExclamationPointCallStringToIntOneTime() {
+		// Given: I need to encrypt a message
+		given(mockStringToInt.getResult("!")).willReturn(-1);
+		given(mockDoubleInt.getResult(0)).willReturn(0);
+		given(mockIntToString.getResult(0)).willReturn("");
+		
+		// When: I enter the string "!"
+		IEncryptedMessageFlow IEMF = new EncryptedMessageFlow(mockStringToInt, mockDoubleInt, mockIntToString);
+		IEMF.getResult("!");
+		
+		//Then: StringToInt.getResult() will be called one time
+		verify(mockStringToInt, times(1)).getResult("!");
+	}
+	
+	@Test
+	public void GivenExclamationPointCallDoubleIntZeroTimes() {
+		// Given: I need to encrypt a message
+		given(mockStringToInt.getResult("!")).willReturn(-1);
+		given(mockDoubleInt.getResult(0)).willReturn(0);
+		given(mockIntToString.getResult(0)).willReturn("");
+		
+		// When: I enter the string "!"
+		IEncryptedMessageFlow IEMF = new EncryptedMessageFlow(mockStringToInt, mockDoubleInt, mockIntToString);
+		IEMF.getResult("!");
+		
+		//Then: DoubleInt.getResult() will be called zero times
+		verify(mockDoubleInt, times(0)).getResult(0);
+	}
+	
+	@Test
+	public void GivenExclamationPointCallIntToStringZeroTimes() {
+		// Given: I need to encrypt a message
+		given(mockStringToInt.getResult("!")).willReturn(-1);
+		given(mockDoubleInt.getResult(0)).willReturn(0);
+		given(mockIntToString.getResult(0)).willReturn("");
+		
+		// When: I enter the string "!"
+		IEncryptedMessageFlow IEMF = new EncryptedMessageFlow(mockStringToInt, mockDoubleInt, mockIntToString);
+		IEMF.getResult("!");
+		
+		//Then: IntToString.getResult() will be called zero times
+		verify(mockIntToString, times(0)).getResult(0);
+	}
+	
+	
+	// Testing for string "abc" 
+	@Test
+	public void GivenabcCallLoopFlow() {
+		// Given: I need to encrypt a message
+		given(mockEncryptedMessageFlow.getResult("a")).willReturn("b");
+		given(mockEncryptedMessageFlow.getResult("b")).willReturn("d");
+		given(mockEncryptedMessageFlow.getResult("c")).willReturn("f");
+		
+		// When: I enter the string "abc"
+		ILoopFlow ILF = new LoopFlow(mockEncryptedMessageFlow);
+		ILF.getResult("abc");
+		
+		//Then: IntToString.getResult() will be called one time
+		verify(mockEncryptedMessageFlow, times(1)).getResult("a");
+		verify(mockEncryptedMessageFlow, times(1)).getResult("b");
+		verify(mockEncryptedMessageFlow, times(1)).getResult("c");
+	}
 }

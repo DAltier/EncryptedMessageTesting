@@ -13,7 +13,7 @@ public class StringToInt implements IStringToInt {
 			Random r = new Random();
 			int ran = r.nextInt(52 - 27) + 27;
 			if(ran % 2 == 0) {
-				ran -= 1;
+				ran--;
 			}
 			return ran;
 		} else if (numbers.contains(s)) {
@@ -21,6 +21,7 @@ public class StringToInt implements IStringToInt {
 		} else if (alphabet.contains(s)) {
 			return alphabet.indexOf(alpha) + 1;
 		}
+		
 		return -1; 
 	}
 	

@@ -18,6 +18,11 @@ public class AppConfig {
 		return new DoubleInt();
 	}
 	
+	@Bean(name = "IHalfInt")
+	public IHalfInt createHalfInt() {
+		return new HalfInt();
+	}
+	
 	@Bean(name = "IIntToString")
 	public IIntToString createIntToString() {
 		return new IntToString();
@@ -26,5 +31,15 @@ public class AppConfig {
 	@Bean(name = "IEncryptedMessageFlow")
 	public IEncryptedMessageFlow createEncryptedMessageFlow() {
 		return new EncryptedMessageFlow(createStringToInt(), createDoubleInt(), createIntToString());
+	}
+	
+	@Bean(name = "IDecryptedMessageFlow")
+	public IDecryptedMessageFlow createDecryptedMessageFlow() {
+		return new DecryptedMessageFlow(createStringToInt(), createHalfInt(), createIntToString());
+	}
+	
+	@Bean(name = "ILoopFlow")
+	public ILoopFlow createLoopFlow() {
+		return new LoopFlow(createEncryptedMessageFlow());
 	}
 }

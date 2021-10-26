@@ -13,22 +13,19 @@ public class EncryptedMessageFlow implements IEncryptedMessageFlow {
 	}
 
 	public String getResult(String s) {
-		String result = "";
 		String numbers = "0123456789";
+		int stringToIntCheck = _ISTI.getResult(s);
 		
-		for(int i = 0; i < s.length(); i++) {
-			int stringToIntCheck = _ISTI.getResult(String.valueOf(s.charAt(i)));
-			if (stringToIntCheck == -1) {
-				result += String.valueOf(s.charAt(i));
-			} else if (String.valueOf(s.charAt(i)).equals(" ")) {
-				result += _IITS.getResult(stringToIntCheck);
-			} else if (numbers.contains(String.valueOf(s.charAt(i)))) {
-				result += stringToIntCheck;
+		if (stringToIntCheck != -1) {
+			if (s.equals(" ")) {
+				return _IITS.getResult(stringToIntCheck);
+			} else if (numbers.contains(s)) {
+				return String.valueOf(stringToIntCheck);
 			} else {
 				int doubleIntCheck = _IDI.getResult(stringToIntCheck);
-				result += _IITS.getResult(doubleIntCheck);
+				return _IITS.getResult(doubleIntCheck);
 			}
 		}
-		return result;
+		return s;
 	}
 }
