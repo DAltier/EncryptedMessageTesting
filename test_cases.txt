@@ -58,3 +58,6 @@ Then: return back to me 'A'
 Given: I am a user
 When: When I enter number 52
 Then: return back to me 'Z'
+____________________________
+
+Decrypt a message
