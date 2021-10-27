@@ -61,3 +61,5 @@ Then: return back to me 'Z'
 ____________________________
 
 Decrypt a message
+Spaces get a random odd number between 26 and 52 and return capital associated with that number
+Replace numbers with 10-number EXCEPT 0

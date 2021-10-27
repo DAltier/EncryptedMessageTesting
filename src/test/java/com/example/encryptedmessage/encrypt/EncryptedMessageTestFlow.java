@@ -1,4 +1,4 @@
-package com.example.encryptedmessage;
+package com.example.encryptedmessage.encrypt;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
@@ -11,13 +11,13 @@ import org.mockito.Mock;
 class EncryptedMessageTestFlow {
 
 	@Mock
-	StringToInt mockStringToInt = mock(StringToInt.class);
+	EncryptStringToInt mockStringToInt = mock(EncryptStringToInt.class);
 	
 	@Mock
-	DoubleInt mockDoubleInt = mock(DoubleInt.class);
+	EncryptDoubleInt mockDoubleInt = mock(EncryptDoubleInt.class);
 	
 	@Mock
-	IntToString mockIntToString = mock(IntToString.class);
+	EncryptIntToString mockIntToString = mock(EncryptIntToString.class);
 	
 	@Mock
 	EncryptedMessageFlow mockEncryptedMessageFlow = mock(EncryptedMessageFlow.class);
@@ -306,7 +306,7 @@ class EncryptedMessageTestFlow {
 	
 	// Testing for string "abc" 
 	@Test
-	public void GivenabcCallLoopFlow() {
+	public void GivenabcCallLoopFlow3Times() {
 		// Given: I need to encrypt a message
 		given(mockEncryptedMessageFlow.getResult("a")).willReturn("b");
 		given(mockEncryptedMessageFlow.getResult("b")).willReturn("d");

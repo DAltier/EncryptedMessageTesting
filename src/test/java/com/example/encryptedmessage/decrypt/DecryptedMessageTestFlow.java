@@ -1,4 +1,4 @@
-package com.example.encryptedmessage;
+package com.example.encryptedmessage.decrypt;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
@@ -11,13 +11,13 @@ import org.mockito.Mock;
 class DecryptedMessageTestFlow {
 
 	@Mock
-	StringToInt mockStringToInt = mock(StringToInt.class);
+	DecryptStringToInt mockStringToInt = mock(DecryptStringToInt.class);
 	
 	@Mock
-	HalfInt mockHalfInt = mock(HalfInt.class);
+	DecryptHalfInt mockHalfInt = mock(DecryptHalfInt.class);
 	
 	@Mock
-	IntToString mockIntToString = mock(IntToString.class);
+	DecryptIntToString mockIntToString = mock(DecryptIntToString.class);
 	
 	@Mock
 	DecryptedMessageFlow mockDecryptedMessageFlow = mock(DecryptedMessageFlow.class);
@@ -40,7 +40,7 @@ class DecryptedMessageTestFlow {
 	}
 	
 	@Test
-	public void GivenbCallDoubleIntOneTime() {
+	public void GivenbCallHalfIntOneTime() {
 		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("b")).willReturn(2);
 		given(mockHalfInt.getResult(2)).willReturn(1);
@@ -50,7 +50,7 @@ class DecryptedMessageTestFlow {
 		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
 		IDMF.getResult("b");
 		
-		//Then: DoubleInt.getResult() will be called one time
+		//Then: HalfInt.getResult() will be called one time
 		verify(mockHalfInt, times(1)).getResult(2);
 	}
 	
@@ -70,13 +70,13 @@ class DecryptedMessageTestFlow {
 	}
 
 	
-	// Testing encryption for string "B" 
+	// Testing decryption for string "B" 
 	@Test
 	public void GivenBCallStringToIntOneTime() {
 		// Given: I need to decrypt a message
-		given(mockStringToInt.getResult("B")).willReturn(2);
-		given(mockHalfInt.getResult(2)).willReturn(1);
-		given(mockIntToString.getResult(1)).willReturn("a");
+		given(mockStringToInt.getResult("B")).willReturn(28);
+		given(mockHalfInt.getResult(28)).willReturn(14);
+		given(mockIntToString.getResult(14)).willReturn("n");
 		
 		// When: I enter the string "B"
 		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
@@ -87,33 +87,33 @@ class DecryptedMessageTestFlow {
 	}
 	
 	@Test
-	public void GivenBCallDoubleIntOneTime() {
+	public void GivenBCallHalfIntOneTime() {
 		// Given: I need to decrypt a message
-		given(mockStringToInt.getResult("B")).willReturn(2);
-		given(mockHalfInt.getResult(2)).willReturn(1);
-		given(mockIntToString.getResult(1)).willReturn("a");
+		given(mockStringToInt.getResult("B")).willReturn(28);
+		given(mockHalfInt.getResult(28)).willReturn(14);
+		given(mockIntToString.getResult(14)).willReturn("n");
 		
 		// When: I enter the string "B"
 		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
 		IDMF.getResult("B");
 		
-		//Then: DoubleInt.getResult() will be called one time
-		verify(mockHalfInt, times(1)).getResult(2);
+		//Then: HalfInt.getResult() will be called one time
+		verify(mockHalfInt, times(1)).getResult(28);
 	}
 	
 	@Test
 	public void GivenBCallIntToStringOneTime() {
 		// Given: I need to decrypt a message
-		given(mockStringToInt.getResult("B")).willReturn(2);
-		given(mockHalfInt.getResult(2)).willReturn(1);
-		given(mockIntToString.getResult(1)).willReturn("a");
+		given(mockStringToInt.getResult("B")).willReturn(28);
+		given(mockHalfInt.getResult(28)).willReturn(14);
+		given(mockIntToString.getResult(14)).willReturn("n");
 		
 		// When: I enter the string "B"
 		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
 		IDMF.getResult("B");
 		
 		//Then: IntToString.getResult() will be called one time
-		verify(mockIntToString, times(1)).getResult(1);
+		verify(mockIntToString, times(1)).getResult(14);
 	}
 	
 	
@@ -134,7 +134,7 @@ class DecryptedMessageTestFlow {
 	}
 	
 	@Test
-	public void GivenACallDoubleIntZeroTimes() {
+	public void GivenACallHalfIntZeroTimes() {
 		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("A")).willReturn(-1);
 		given(mockHalfInt.getResult(-1)).willReturn(0);
@@ -144,7 +144,7 @@ class DecryptedMessageTestFlow {
 		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
 		IDMF.getResult("A");
 		
-		//Then: DoubleInt.getResult() will be called zero times
+		//Then: HalfInt.getResult() will be called zero times
 		verify(mockHalfInt, times(0)).getResult(-1);
 	}
 	
@@ -161,6 +161,53 @@ class DecryptedMessageTestFlow {
 		
 		//Then: IntToString.getResult() will be called zero times
 		verify(mockIntToString, times(0)).getResult(0);
+	}
+	
+	
+	// Testing encryption for string "Z" 
+	@Test
+	public void GivenZCallStringToIntOneTime() {
+		// Given: I need to decrypt a message
+		given(mockStringToInt.getResult("Z")).willReturn(52);
+		given(mockHalfInt.getResult(52)).willReturn(26);
+		given(mockIntToString.getResult(26)).willReturn("z");
+		
+		// When: I enter the string "Z"
+		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
+		IDMF.getResult("Z");
+		
+		//Then: StringToInt.getResult() will be called one time
+		verify(mockStringToInt, times(1)).getResult("Z");
+	}
+	
+	@Test
+	public void GivenZCallHalfIntOneTime() {
+		// Given: I need to decrypt a message
+		given(mockStringToInt.getResult("Z")).willReturn(52);
+		given(mockHalfInt.getResult(52)).willReturn(26);
+		given(mockIntToString.getResult(26)).willReturn("z");
+		
+		// When: I enter the string "Z"
+		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
+		IDMF.getResult("Z");
+		
+		//Then: HalfInt.getResult() will be called zero times
+		verify(mockHalfInt, times(1)).getResult(52);
+	}
+	
+	@Test
+	public void GivenZCallIntToStringOneTime() {
+		// Given: I need to decrypt a message
+		given(mockStringToInt.getResult("Z")).willReturn(52);
+		given(mockHalfInt.getResult(52)).willReturn(26);
+		given(mockIntToString.getResult(26)).willReturn("z");
+		
+		// When: I enter the string "Z"
+		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
+		IDMF.getResult("Z");
+		
+		//Then: IntToString.getResult() will be called zero times
+		verify(mockIntToString, times(1)).getResult(26);
 	}
 
 	
@@ -181,17 +228,17 @@ class DecryptedMessageTestFlow {
 	}
 	
 	@Test
-	public void GivenExclamationPointCallDoubleIntZeroTimes() {
+	public void GivenExclamationPointCallHalfIntZeroTimes() {
 		// Given: I need to decrypt a message
 		given(mockStringToInt.getResult("!")).willReturn(-1);
 		given(mockHalfInt.getResult(-1)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn("!");
 		
-		// When: I enter the string "A"
+		// When: I enter the string "!"
 		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
 		IDMF.getResult("!");
 		
-		//Then: DoubleInt.getResult() will be called zero times
+		//Then: HalfInt.getResult() will be called zero times
 		verify(mockHalfInt, times(0)).getResult(-1);
 	}
 	
@@ -202,7 +249,7 @@ class DecryptedMessageTestFlow {
 		given(mockHalfInt.getResult(-1)).willReturn(0);
 		given(mockIntToString.getResult(0)).willReturn("!");
 		
-		// When: I enter the string "A"
+		// When: I enter the string "!"
 		IDecryptedMessageFlow IDMF = new DecryptedMessageFlow(mockStringToInt, mockHalfInt, mockIntToString);
 		IDMF.getResult("!");
 		
@@ -210,21 +257,51 @@ class DecryptedMessageTestFlow {
 		verify(mockIntToString, times(0)).getResult(0);
 	}
 	
-	// Testing for string "abc" 
+	// Testing for string "bdf" 
 	@Test
-	public void GivenabcCallLoopFlow() {
+	public void GivenabcCallLoopFlow3Times() {
 		// Given: I need to decrypt a message
-		given(mockDecryptedMessageFlow.getResult("a")).willReturn("b");
-		given(mockDecryptedMessageFlow.getResult("b")).willReturn("d");
-		given(mockDecryptedMessageFlow.getResult("c")).willReturn("f");
+		given(mockDecryptedMessageFlow.getResult("b")).willReturn("a");
+		given(mockDecryptedMessageFlow.getResult("d")).willReturn("b");
+		given(mockDecryptedMessageFlow.getResult("f")).willReturn("c");
 		
-		// When: I enter the string "abc"
+		// When: I enter the string "bdf"
 		IDecryptionLoopFlow ILF = new DecryptionLoopFlow(mockDecryptedMessageFlow);
-		ILF.getResult("abc");
+		ILF.getResult("bdf");
 		
 		//Then: IntToString.getResult() will be called one time
-		verify(mockDecryptedMessageFlow, times(1)).getResult("a");
 		verify(mockDecryptedMessageFlow, times(1)).getResult("b");
-		verify(mockDecryptedMessageFlow, times(1)).getResult("c");
+		verify(mockDecryptedMessageFlow, times(1)).getResult("d");
+		verify(mockDecryptedMessageFlow, times(1)).getResult("f");
+	}
+	
+	
+	// Testing for string "B" 
+	@Test
+	public void GivenBbcCallLoopFlow() {
+		// Given: I need to decrypt a message
+		given(mockDecryptedMessageFlow.getResult("B")).willReturn("n");
+		
+		// When: I enter the string "B"
+		IDecryptionLoopFlow ILF = new DecryptionLoopFlow(mockDecryptedMessageFlow);
+		ILF.getResult("B");
+		
+		//Then: IntToString.getResult() will be called one time
+		verify(mockDecryptedMessageFlow, times(1)).getResult("B");
+	}
+	
+	
+	// Testing for string "Z" 
+	@Test
+	public void GivenZbcCallLoopFlow() {
+		// Given: I need to decrypt a message
+		given(mockDecryptedMessageFlow.getResult("Z")).willReturn("z");
+		
+		// When: I enter the string "Z"
+		IDecryptionLoopFlow ILF = new DecryptionLoopFlow(mockDecryptedMessageFlow);
+		ILF.getResult("Z");
+		
+		//Then: IntToString.getResult() will be called one time
+		verify(mockDecryptedMessageFlow, times(1)).getResult("Z");
 	}
 }

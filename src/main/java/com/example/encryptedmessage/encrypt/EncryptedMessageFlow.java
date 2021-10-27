@@ -1,18 +1,19 @@
-package com.example.encryptedmessage;
+package com.example.encryptedmessage.encrypt;
 
 public class EncryptedMessageFlow implements IEncryptedMessageFlow {
 	
-	private IStringToInt _ISTI;
-	private IDoubleInt _IDI;
-	private IIntToString _IITS;
+	private IEncryptStringToInt _ISTI;
+	private IEncryptDoubleInt _IDI;
+	private IEncryptIntToString _IITS;
 	
-	public EncryptedMessageFlow(IStringToInt ISTI, IDoubleInt IDI, IIntToString IITS) {
+	public EncryptedMessageFlow(IEncryptStringToInt ISTI, IEncryptDoubleInt IDI, IEncryptIntToString IITS) {
 		_ISTI = ISTI;
 		_IDI = IDI;
 		_IITS = IITS;
 	}
 
 	public String getResult(String s) {
+		
 		String numbers = "0123456789";
 		int stringToIntCheck = _ISTI.getResult(s);
 		
@@ -26,6 +27,8 @@ public class EncryptedMessageFlow implements IEncryptedMessageFlow {
 				return _IITS.getResult(doubleIntCheck);
 			}
 		}
+		
 		return s;
+		
 	}
 }

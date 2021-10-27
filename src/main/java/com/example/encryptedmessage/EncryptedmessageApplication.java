@@ -7,6 +7,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 
+import com.example.encryptedmessage.decrypt.DecryptionLoopFlow;
+import com.example.encryptedmessage.decrypt.IDecryptionLoopFlow;
+import com.example.encryptedmessage.encrypt.EncryptionLoopFlow;
+import com.example.encryptedmessage.encrypt.IEncryptionLoopFlow;
+
 @SpringBootApplication
 public class EncryptedmessageApplication {
 

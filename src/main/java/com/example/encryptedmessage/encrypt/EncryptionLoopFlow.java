@@ -1,10 +1,10 @@
-package com.example.encryptedmessage;
+package com.example.encryptedmessage.encrypt;
 
 public class EncryptionLoopFlow implements IEncryptionLoopFlow {
 
 	private IEncryptedMessageFlow _IEMF;
 
-    EncryptionLoopFlow(IEncryptedMessageFlow IEMF) {
+    public EncryptionLoopFlow(IEncryptedMessageFlow IEMF) {
         _IEMF = IEMF;
     }
 

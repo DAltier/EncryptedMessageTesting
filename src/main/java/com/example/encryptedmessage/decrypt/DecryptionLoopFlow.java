@@ -1,10 +1,10 @@
-package com.example.encryptedmessage;
+package com.example.encryptedmessage.decrypt;
 
 public class DecryptionLoopFlow implements IDecryptionLoopFlow {
 	
 	private IDecryptedMessageFlow _IDMF;
 
-    DecryptionLoopFlow(IDecryptedMessageFlow IDMF) {
+    public DecryptionLoopFlow(IDecryptedMessageFlow IDMF) {
         _IDMF = IDMF;
     }
 

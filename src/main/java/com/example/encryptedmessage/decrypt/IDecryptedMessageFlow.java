@@ -1,4 +1,4 @@
-package com.example.encryptedmessage;
+package com.example.encryptedmessage.decrypt;
 
 public interface IDecryptedMessageFlow {
 

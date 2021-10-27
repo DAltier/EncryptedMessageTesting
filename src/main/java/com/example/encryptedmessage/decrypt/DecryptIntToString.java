@@ -1,10 +1,12 @@
-package com.example.encryptedmessage;
+package com.example.encryptedmessage.decrypt;
 
-public class IntToString implements IIntToString {
-	
+public class DecryptIntToString implements IDecryptIntToString {
+
 	public String getResult(int num) {
+		
 		String alphabet = "abcdefghijklmnopqrstuvwxyz";
 		String result = "";
+		
 		if (num > 26) {
 			num -= 26;
 			char c = alphabet.charAt(num - 1);
@@ -13,7 +15,9 @@ public class IntToString implements IIntToString {
 			char c = alphabet.charAt(num - 1);
 			result = String.valueOf(c);
 		}
+		
 		return result;
+		
 	}
 	
 }
